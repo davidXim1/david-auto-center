@@ -1,0 +1,10 @@
+.next
+node_modules
+.pnpm-store/
+.env.local
+.env
+data/db.json
+*.log
+.tunnels/
+tsconfig.tsbuildinfo
+.vercel/

@@ -1,0 +1,26 @@
+# Checklist de Seguranca
+
+- Supabase Auth ativo.
+- Login administrativo ativo antes de liberar `/admin`.
+- Cookie de admin HTTP-only, assinado e com expiracao.
+- Trocar `ADMIN_LOGIN`, `ADMIN_PASSWORD` e `AUTH_SECRET` antes do deploy.
+- RLS habilitado em todas as tabelas.
+- Politicas por perfil: Administrador, Gerente e Atendente.
+- Validacao de telefone brasileiro.
+- Validacao de placa Mercosul e antiga.
+- Validacao de CEP.
+- Bloqueio unico por campanha + placa.
+- Bloqueio unico por campanha + telefone.
+- Codigo de premio unico com indice unique.
+- Estoque decrementado por trigger.
+- Premio esgotado desativado automaticamente.
+- Logs de login, resgate e alteracoes administrativas.
+- Sanitizacao de entradas de texto.
+- Protecao XSS por renderizacao React e validacao de dados.
+- Protecao SQL Injection usando queries parametrizadas do Supabase.
+- Rate limit em rotas publicas de cadastro e giro.
+- Antibot com captcha ou Turnstile antes de liberar a roleta.
+- CSRF protegido em rotas mutaveis.
+- Backups automaticos do Supabase.
+- Separar chaves anon e service role.
+- Nunca expor `SUPABASE_SERVICE_ROLE_KEY` no cliente.

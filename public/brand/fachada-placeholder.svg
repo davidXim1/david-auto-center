@@ -1,0 +1,13 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#F7F7F8"/>
+  <rect y="0" width="1200" height="210" fill="#09090B"/>
+  <rect x="84" y="150" width="1032" height="460" rx="8" fill="#D9D9DE"/>
+  <rect x="130" y="205" width="940" height="120" fill="#111113"/>
+  <text x="600" y="280" text-anchor="middle" fill="white" font-family="Arial" font-size="58" font-weight="900">DAVID AUTO CENTER</text>
+  <rect x="160" y="365" width="300" height="245" fill="#F9FAFB"/>
+  <rect x="500" y="365" width="250" height="245" fill="#B9BBC4"/>
+  <rect x="790" y="365" width="250" height="245" fill="#F9FAFB"/>
+  <rect x="0" y="610" width="1200" height="150" fill="#2E2E33"/>
+  <path d="M190 625H1010" stroke="#D71920" stroke-width="20"/>
+  <text x="600" y="704" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700">Substitua por foto real da fachada no painel</text>
+</svg>

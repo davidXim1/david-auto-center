@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f7f8;
+  color: #111113;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.wheel {
+  background:
+    conic-gradient(
+      from -18deg,
+      #d71920 0 36deg,
+      #ffffff 36deg 72deg,
+      #111113 72deg 108deg,
+      #d71920 108deg 144deg,
+      #ffffff 144deg 180deg,
+      #111113 180deg 216deg,
+      #d71920 216deg 252deg,
+      #ffffff 252deg 288deg,
+      #111113 288deg 324deg,
+      #d71920 324deg 360deg
+    );
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 999px;
+}

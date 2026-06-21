@@ -1,0 +1,9 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="240" height="240" rx="28" fill="#09090B"/>
+  <path d="M45 144L74 76H105L134 144H109L104 130H75L70 144H45Z" fill="white"/>
+  <path d="M80 113H99L90 88L80 113Z" fill="#D71920"/>
+  <path d="M133 144V76H164C185 76 199 89 199 110C199 131 185 144 164 144H133Z" fill="#D71920"/>
+  <path d="M157 125H163C171 125 177 119 177 110C177 101 171 95 163 95H157V125Z" fill="white"/>
+  <text x="120" y="182" text-anchor="middle" fill="white" font-family="Arial" font-size="20" font-weight="800">DAVID AUTO</text>
+  <text x="120" y="205" text-anchor="middle" fill="#D71920" font-family="Arial" font-size="16" font-weight="800">CENTER</text>
+</svg>
