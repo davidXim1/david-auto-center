@@ -8,3 +8,5 @@ data/db.json
 .tunnels/
 tsconfig.tsbuildinfo
 .vercel/
+.env*
+!.env.example
