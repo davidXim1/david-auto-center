@@ -99,7 +99,10 @@ export async function PublicCampaignPage() {
           </div>
           <Pill tone={activeCampaign.ativa ? "green" : "neutral"}>{activeCampaign.ativa ? "Campanha liberada" : "Campanha pausada"}</Pill>
         </div>
-        <RouletteExperience vipGroupUrl={activeCampaign.vipGroupUrl || companySettings.vipGroupUrl} />
+        <RouletteExperience
+          vipGroupUrl={activeCampaign.vipGroupUrl || companySettings.vipGroupUrl}
+          googleMapsUrl={companySettings.googleMapsUrl}
+        />
       </section>
 
       <section id="premios" className="bg-white">

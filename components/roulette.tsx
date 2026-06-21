@@ -26,7 +26,7 @@ interface SavedDrawResult {
   rotation: number;
 }
 
-export function RouletteExperience({ vipGroupUrl }: { vipGroupUrl: string }) {
+export function RouletteExperience({ vipGroupUrl, googleMapsUrl }: { vipGroupUrl: string; googleMapsUrl: string }) {
   const [accepted, setAccepted] = useState<string[]>([]);
   const [form, setForm] = useState({ nome: "", telefone: "", whatsapp: "", placa: "", marca: "", modelo: "", km: "" });
   const [confirmed, setConfirmed] = useState(false);
@@ -124,7 +124,14 @@ export function RouletteExperience({ vipGroupUrl }: { vipGroupUrl: string }) {
         <div className="mt-5 grid gap-2 sm:grid-cols-4">
           <a href={`/resgate/${result.redemption.codigo}`} className="inline-flex min-h-11 items-center justify-center rounded-lg bg-brand-red px-4 py-2 text-sm font-bold text-white shadow-glow">Resgatar premio</a>
           <Button variant="secondary">Chamar no WhatsApp</Button>
-          <Button variant="secondary">Como chegar</Button>
+          <a
+            href={googleMapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-4 py-2 text-sm font-bold text-zinc-950 transition hover:border-brand-red active:scale-[0.98]"
+          >
+            Como chegar
+          </a>
           <Button variant="dark">Indicar amigo</Button>
         </div>
       </Card>
