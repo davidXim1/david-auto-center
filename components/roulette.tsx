@@ -8,6 +8,10 @@ import type { Prize, Redemption } from "@/lib/types";
 import { isBrazilianPhone, isBrazilianPlate, sanitizeText } from "@/lib/validators";
 import { Button, Card, FieldLabel, Input, Pill } from "./ui";
 
+const SPIN_DURATION_SECONDS = 10;
+const SPIN_DURATION_MS = SPIN_DURATION_SECONDS * 1000;
+const wheelStuds = Array.from({ length: 18 }, (_, index) => index);
+
 const terms = [
   "Aceito os Termos de Uso.",
   "Aceito a Politica de Privacidade.",
@@ -84,11 +88,11 @@ export function RouletteExperience({ vipGroupUrl }: { vipGroupUrl: string }) {
         return;
       }
 
-      setRotation(data.rotation);
+      setRotation((current) => current + 3600 + data.rotation);
       window.setTimeout(() => {
         setResult(data);
         setIsSpinning(false);
-      }, 1800);
+      }, SPIN_DURATION_MS);
     } catch {
       setError("Falha de conexao. Tente novamente.");
       setIsSpinning(false);
@@ -195,17 +199,42 @@ export function RouletteExperience({ vipGroupUrl }: { vipGroupUrl: string }) {
         )}
       </Card>
 
-      <Card className="flex flex-col items-center justify-center overflow-hidden bg-zinc-950 text-white">
-        <Pill tone="red">Roleta da sorte</Pill>
-        <div className="relative my-5 flex h-72 w-72 items-center justify-center">
-          <div className="absolute top-0 z-10 h-0 w-0 border-x-[14px] border-t-[28px] border-x-transparent border-t-white" />
+      <Card className="flex flex-col items-center justify-center overflow-hidden bg-zinc-950 p-5 text-white">
+        <div className="flex w-full items-center justify-between gap-3">
+          <Pill tone="red">Roleta da sorte</Pill>
+          <span className="text-xs font-bold text-zinc-400">{isSpinning ? "Girando por 10 segundos" : "Premio garantido no sistema"}</span>
+        </div>
+        <div className="relative my-6 flex h-80 w-80 max-w-full items-center justify-center">
+          <div className="absolute inset-0 rounded-full bg-brand-red/20 blur-2xl" />
+          <div className="absolute -top-1 z-20 flex flex-col items-center drop-shadow-xl">
+            <div className="h-5 w-5 rounded-full border-2 border-white bg-brand-red" />
+            <div className="h-0 w-0 border-x-[18px] border-t-[34px] border-x-transparent border-t-white" />
+          </div>
+          <div className="absolute inset-3 rounded-full border border-white/20" />
           <motion.div
             animate={{ rotate: rotation || (confirmed ? 18 : 0) }}
-            transition={{ duration: 4, ease: "circOut" }}
-            className="wheel h-64 w-64 rounded-full border-[10px] border-white shadow-2xl"
-          />
-          <div className="absolute flex h-20 w-20 items-center justify-center rounded-full bg-white text-brand-red shadow-xl">
-            <Gift size={34} />
+            transition={{
+              duration: isSpinning ? SPIN_DURATION_SECONDS : 0.8,
+              ease: isSpinning ? [0.08, 0.72, 0.16, 1] : "easeOut"
+            }}
+            className="wheel relative h-72 w-72 rounded-full border-[12px] border-white shadow-2xl"
+          >
+            <div className="absolute inset-0 rounded-full border-[6px] border-zinc-950/80" />
+            <div className="absolute inset-4 rounded-full border border-white/40" />
+            {wheelStuds.map((stud) => (
+              <div
+                key={stud}
+                className="absolute left-1/2 top-1/2 h-full w-1 -translate-x-1/2 -translate-y-1/2"
+                style={{ transform: `translate(-50%, -50%) rotate(${stud * 20}deg)` }}
+              >
+                <span className="absolute left-1/2 top-2 h-2 w-2 -translate-x-1/2 rounded-full bg-white shadow" />
+              </div>
+            ))}
+          </motion.div>
+          <div className="absolute flex h-24 w-24 items-center justify-center rounded-full border-[6px] border-zinc-950 bg-white text-brand-red shadow-xl">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-brand-red/30">
+              <Gift size={34} />
+            </div>
           </div>
         </div>
         {error ? <p className="mb-3 text-center text-sm font-bold text-red-200">{error}</p> : null}
@@ -223,9 +252,11 @@ export function RouletteExperience({ vipGroupUrl }: { vipGroupUrl: string }) {
         ) : null}
         <Button disabled={!confirmed || !joinedGroup || isSpinning} onClick={spin} className="w-full disabled:cursor-not-allowed disabled:opacity-50">
           <RotateCw size={18} />
-          {isSpinning ? "Registrando..." : joinedGroup ? "Girar agora" : "Entre no grupo para girar"}
+          {isSpinning ? "Girando... aguarde 10 segundos" : joinedGroup ? "Girar agora" : "Entre no grupo para girar"}
         </Button>
-        <p className="mt-3 text-center text-xs text-zinc-400">O giro agora registra cliente, veiculo, premio, codigo e bloqueio por placa/telefone.</p>
+        <p className="mt-3 text-center text-xs text-zinc-400">
+          {isSpinning ? "O resultado aparece somente quando a roleta terminar." : "O giro registra cliente, veiculo, premio, codigo e bloqueio por placa/telefone."}
+        </p>
       </Card>
     </div>
   );
