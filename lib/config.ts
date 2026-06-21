@@ -12,7 +12,7 @@ export const companySettings: CompanySettings = {
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Av.%20Nicola%20Capucci%20111%20Cidade%20Jardim%20Jacarei%20SP",
   googleReviewsUrl: "https://www.google.com/search?q=David+Auto+Center+Jacarei+avaliar",
   vipGroupUrl: "https://chat.whatsapp.com/KIB4APmc6j17ori8BrndQ7?s=sw&p=i&ilr=0",
-  publicSiteUrl: "",
+  publicSiteUrl: "https://david-auto-center.vercel.app",
   defaultWhatsappMessage: "Ola, participei da campanha da David Auto Center e gostaria de mais informacoes."
 };
 
@@ -52,7 +52,7 @@ export const activeCampaign: Campaign = {
     "cep"
   ],
   bannerUrl: "/brand/fachada-david-auto-center.jpeg",
-  linkCompartilhamento: "https://club.davidautocenter.com.br/c/revisao-premiada",
+  linkCompartilhamento: "https://david-auto-center.vercel.app/participar",
   vipGroupMode: "opcional",
   vipGroupUrl: "https://chat.whatsapp.com/KIB4APmc6j17ori8BrndQ7?s=sw&p=i&ilr=0",
   publico: ["todos"]
