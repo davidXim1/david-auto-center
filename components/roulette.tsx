@@ -214,32 +214,32 @@ export function RouletteExperience({ vipGroupUrl, googleMapsUrl }: { vipGroupUrl
         <div className="relative my-6 flex h-80 w-80 max-w-full items-center justify-center">
           <div className="absolute inset-0 rounded-full bg-brand-red/20 blur-2xl" />
           <div className="absolute -top-1 z-20 flex flex-col items-center drop-shadow-xl">
-            <div className="h-5 w-5 rounded-full border-2 border-white bg-brand-red" />
-            <div className="h-0 w-0 border-x-[18px] border-t-[34px] border-x-transparent border-t-white" />
+            <div className="h-5 w-5 rounded-full border-2 border-zinc-950 bg-brand-red" />
+            <div className="h-0 w-0 border-x-[18px] border-t-[34px] border-x-transparent border-t-brand-red" />
           </div>
-          <div className="absolute inset-3 rounded-full border border-white/20" />
+          <div className="absolute inset-3 rounded-full border border-brand-red/40" />
           <motion.div
             animate={{ rotate: rotation || (confirmed ? 18 : 0) }}
             transition={{
               duration: isSpinning ? SPIN_DURATION_SECONDS : 0.8,
               ease: isSpinning ? [0.08, 0.72, 0.16, 1] : "easeOut"
             }}
-            className="wheel relative h-72 w-72 rounded-full border-[12px] border-white shadow-2xl"
+            className="wheel relative h-72 w-72 rounded-full border-[12px] border-brand-red shadow-2xl"
           >
             <div className="absolute inset-0 rounded-full border-[6px] border-zinc-950/80" />
-            <div className="absolute inset-4 rounded-full border border-white/40" />
+            <div className="absolute inset-4 rounded-full border border-brand-red/50" />
             {wheelStuds.map((stud) => (
               <div
                 key={stud}
                 className="absolute left-1/2 top-1/2 h-full w-1 -translate-x-1/2 -translate-y-1/2"
                 style={{ transform: `translate(-50%, -50%) rotate(${stud * 20}deg)` }}
               >
-                <span className="absolute left-1/2 top-2 h-2 w-2 -translate-x-1/2 rounded-full bg-white shadow" />
+                <span className={`absolute left-1/2 top-2 h-2 w-2 -translate-x-1/2 rounded-full shadow ${stud % 2 === 0 ? "bg-brand-red" : "bg-zinc-950"}`} />
               </div>
             ))}
           </motion.div>
-          <div className="absolute flex h-24 w-24 items-center justify-center rounded-full border-[6px] border-zinc-950 bg-white text-brand-red shadow-xl">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-brand-red/30">
+          <div className="absolute flex h-24 w-24 items-center justify-center rounded-full border-[6px] border-brand-red bg-zinc-950 text-brand-red shadow-xl">
+            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-brand-red/50">
               <Gift size={34} />
             </div>
           </div>

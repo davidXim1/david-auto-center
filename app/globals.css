@@ -29,27 +29,27 @@ textarea {
 .wheel {
   overflow: hidden;
   background:
-    radial-gradient(circle at center, #ffffff 0 13%, transparent 13.5%),
+    radial-gradient(circle at center, #111113 0 13%, transparent 13.5%),
     repeating-conic-gradient(
       from -18deg,
-      rgba(255, 255, 255, 0.5) 0 1deg,
+      rgba(17, 17, 19, 0.55) 0 1deg,
       transparent 1deg 36deg
     ),
     conic-gradient(
       from -18deg,
-      #d71920 0 36deg,
-      #ffffff 36deg 72deg,
+      #111113 0 36deg,
+      #d71920 36deg 72deg,
       #111113 72deg 108deg,
       #d71920 108deg 144deg,
-      #ffffff 144deg 180deg,
-      #111113 180deg 216deg,
-      #d71920 216deg 252deg,
-      #ffffff 252deg 288deg,
+      #111113 144deg 180deg,
+      #d71920 180deg 216deg,
+      #111113 216deg 252deg,
+      #d71920 252deg 288deg,
       #111113 288deg 324deg,
       #d71920 324deg 360deg
     );
   box-shadow:
-    inset 0 0 0 2px rgba(255, 255, 255, 0.65),
+    inset 0 0 0 2px rgba(215, 25, 32, 0.75),
     inset 0 0 36px rgba(0, 0, 0, 0.55),
     0 28px 80px rgba(215, 25, 32, 0.28);
 }
@@ -58,7 +58,7 @@ textarea {
   content: "";
   position: absolute;
   inset: 12%;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(215, 25, 32, 0.65);
   border-radius: 999px;
 }
 
